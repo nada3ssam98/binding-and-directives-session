@@ -1,0 +1,56 @@
+<h3 class="text-center m-4">
+    Two way data binding Assignment
+</h3>
+<div class="col-md-3 m-auto p-2">
+
+    <label for="username" class="p-2">Username</label>
+    <input 
+    type="text" 
+    class="form-control" 
+    id="username" 
+    [(ngModel)]="username"
+    >
+    <div>
+        <button (click)="onToggle()" class="btn btn-primary my-2">
+            Display Details
+        </button>
+        <button 
+        class="btn btn-primary mx-2"
+        [disabled] = "username == ''"
+        (click)="clearInput()"
+        >
+        clear
+        </button>
+    </div>
+        
+    <p>
+        @if (showDetails) {
+            Hello, {{username}}
+        }
+        
+    </p>
+
+    
+    <div>
+        <button (click)="onClick()" class="btn btn-primary my-2">
+            Button Log
+        </button>
+        
+        <ul>
+            [
+          <li *ngFor="let click of btnClicks" class="my-1">
+            
+            @if(click>=4){
+                <span [ngClass]="btnSpecialClass" class="p-1"> {{click}}</span>
+            }
+            @else{
+                <span class="p-1">{{click }}</span>
+            }
+            ,
+        </li>
+        ]
+        </ul>
+    </div>
+
+
+</div>
